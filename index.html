@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify</title>
+    <title>Spotify - Your favourite music is here</title>
     <link rel="stylesheet" href="style.css">
-    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Varela+Round&display=swap');
+</style>
+
 </head>
 <body>
     <nav>
         <ul>
-            <li class="brand"><img src="logo.jpg" alt="Spotify">Spotify</li>
-            <li>
-               Home 
-            </li>
-            <li>
-                About
-            </li>
+            <li class="brand"><img src="logo.jpg" alt="Spotify"></li>
+            <li>Home</li>
+            <li>About</li>
         </ul>
     </nav>
-    <div class ="container">
-        <h1></h1>
-
+    <div class="container">
+        <h1>Best of the No Copyright Songs</h1>
+        <div class="Songlist"> </div>
+        <div class="SongBanner"> </div>
     </div>
+     <div class="bottom">
+        <input type="range" name="range" id="myProgressBar" min="0" max="100">
+        <div class="icons"></div>
+        
+     </div>
     <script src="script.js"></script>
     
 </body>
-</html>
+</html> 
