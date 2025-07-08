@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dyslexia-friendly base styles */
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Custom component styles */
+@layer components {
+  .upload-area {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-all duration-300;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  }
+
+  .upload-area:hover {
+    @apply border-blue-500;
+    background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(66, 153, 225, 0.15);
+  }
+
+  .upload-area.dragover {
+    @apply border-blue-500;
+    background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+    transform: scale(1.02);
+  }
+
+  .spinner {
+    @apply border-4 border-gray-300 border-t-blue-500 rounded-full w-10 h-10;
+
+    animation: spin 1s linear infinite;
+  }
+
+  .feedback-item {
+    @apply text-white rounded-xl p-4 my-3 transition-all duration-300;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid #fbbf24;
+  }
+
+  .feedback-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .feedback-item.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-left-color: #34d399;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-lg p-6;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+  }
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Accessibility */
+*:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .feedback-item {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-success {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .spinner {
+    animation: none;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .upload-area {
+    @apply p-6;
+  }
+  
+  .feedback-item {
+    @apply p-3 my-2;
+  }
+} 
